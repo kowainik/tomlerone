@@ -22,7 +22,6 @@ matrix:
         - hvr-ghcjs
         packages:
         - ghcjs-8.4
-        - cabal-install-head
 
 
 install:
