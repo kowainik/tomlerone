@@ -20,7 +20,7 @@ addons:
 
 matrix:
   include:
-  - ghcjs: 8.4.4
+  - ghc: 8.4.4
 
 before_install:
     - export PATH=/opt/ghcjs/8.4/bin:$PATH
