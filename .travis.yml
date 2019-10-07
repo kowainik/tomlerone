@@ -10,19 +10,14 @@ cache:
   directories:
   - "$HOME/.cabal/store"
 
+addons:
+  apt:
+    sources:
+    - sourceline: 'ppa:hvr/ghcjs'
 
 matrix:
   include:
-  - ghc: 8.4.4
-    env: GHCVER='8.4.4' CABALVER='head'
-    os: linux
-    addons:
-      apt:
-        sources:
-        - hvr-ghcjs
-        packages:
-        - ghcjs-8.4
-
+  - ghcjs: 8.4.4
 
 install:
   # HLint check
