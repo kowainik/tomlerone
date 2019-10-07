@@ -22,6 +22,9 @@ matrix:
   include:
   - ghcjs: 8.4.4
 
+before_install:
+    - export PATH=/opt/ghcjs/8.4/bin:$PATH
+
 install:
   # HLint check
   - curl -sSL https://raw.github.com/ndmitchell/neil/master/misc/travis.sh | sh -s -- hlint .
