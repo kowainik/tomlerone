@@ -23,7 +23,9 @@ matrix:
   - ghc: 8.4.4
 
 before_install:
-    - export PATH=/opt/ghcjs/8.4/bin:$PATH
+  - export PATH=/opt/ghcjs/8.4/bin:$PATH
+  - nvm install 8
+  - node --version
 
 install:
   # HLint check
