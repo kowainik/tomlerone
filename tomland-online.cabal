@@ -1,4 +1,4 @@
-cabal-version:       2.0
+cabal-version:       2.4
 name:                tomland-online
 version:             0.0.0.0
 synopsis:            TOML format online checker based on tomland library
@@ -10,81 +10,58 @@ license-file:        LICENSE
 author:              Kowainik
 maintainer:          Kowainik<xrom.xkov@gmail.com>
 copyright:           2019 Kowainik
-category:            Web
+category:            Web, Application
 build-type:          Simple
 extra-doc-files:     README.md
-                   , CHANGELOG.md
-tested-with:         GHC == 8.6.5
+                     CHANGELOG.md
+tested-with:         GHC == 8.4.4
 
 source-repository head
   type:                git
   location:            https://github.com/kowainik/tomland-online.git
 
+
+common common-options
+  build-depends:       base ^>= 4.11.0.0
+
+  ghc-options:         -Wall
+                       -Wincomplete-uni-patterns
+                       -Wincomplete-record-updates
+                       -Wcompat
+                       -Widentities
+                       -Wredundant-constraints
+                       -fhide-source-paths
+                       -Wmissing-export-lists
+                       -Wpartial-fields
+
+  default-language:    Haskell2010
+  default-extensions:  ConstraintKinds
+                       DeriveGeneric
+                       GeneralizedNewtypeDeriving
+                       InstanceSigs
+                       KindSignatures
+                       LambdaCase
+                       OverloadedStrings
+                       RecordWildCards
+                       ScopedTypeVariables
+                       StandaloneDeriving
+                       TupleSections
+                       TypeApplications
+                       ViewPatterns
 library
+  import:              common-options
   hs-source-dirs:      src
   exposed-modules:     TomlandOnline
-                       
+  other-modules:       Paths_tomland_online
 
-  build-depends:       base ^>= 4.12.0.0
-                     
-
-  ghc-options:         -Wall
-                       -Wincomplete-uni-patterns
-                       -Wincomplete-record-updates
-                       -Wcompat
-                       -Widentities
-                       -Wredundant-constraints
-                       -fhide-source-paths
-                       -Wmissing-export-lists
-                       -Wpartial-fields
-
-  default-language:    Haskell2010
-  default-extensions:  ConstraintKinds
-                       DeriveGeneric
-                       GeneralizedNewtypeDeriving
-                       InstanceSigs
-                       KindSignatures
-                       LambdaCase
-                       OverloadedStrings
-                       RecordWildCards
-                       ScopedTypeVariables
-                       StandaloneDeriving
-                       TupleSections
-                       TypeApplications
-                       ViewPatterns
+  build-depends:       tomland ^>= 1.1.0.1
+                     , jsaddle
+                     , jsaddle-warp
+                     , miso
 
 executable tomland-online
+  import:              common-options
   hs-source-dirs:      app
   main-is:             Main.hs
-
-  build-depends:       base ^>= 4.12.0.0
-                     , tomland-online
-                     
-
-  ghc-options:         -Wall
-                       -threaded
-                       -rtsopts
-                       -with-rtsopts=-N
-                       -Wincomplete-uni-patterns
-                       -Wincomplete-record-updates
-                       -Wcompat
-                       -Widentities
-                       -Wredundant-constraints
-                       -fhide-source-paths
-                       -Wmissing-export-lists
-                       -Wpartial-fields
-
-  default-language:    Haskell2010
-  default-extensions:  ConstraintKinds
-                       DeriveGeneric
-                       GeneralizedNewtypeDeriving
-                       InstanceSigs
-                       KindSignatures
-                       LambdaCase
-                       OverloadedStrings
-                       RecordWildCards
-                       ScopedTypeVariables
-                       StandaloneDeriving
-                       TupleSections
-                       TypeApplications
-                       ViewPatterns
+  build-depends:       tomland-online
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
