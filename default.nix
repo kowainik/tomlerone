@@ -6,7 +6,7 @@ with (import (builtins.fetchTarball {
 let
   inherit (pkgs) runCommand closurecompiler;
   inherit (pkgs.haskell.packages) ghcjs86;
-  client = clientDrv.callCabal2nix "tomland-online" ./. {};
+  client = clientDrv.callCabal2nix "tomlerone" ./. {};
 
   # project derivation.
   clientDrv = ghcjs86.extend (pkgs.haskell.lib.packageSourceOverrides {
@@ -14,7 +14,7 @@ let
     parser-combinators = builtins.fetchTarball "https://github.com/mrkkrp/parser-combinators/archive/7996964b0f4da5adfed5768656e2f1e47cebe659.tar.gz";
     });
 in
-  runCommand "tomland-online" { inherit client; } ''
+  runCommand "tomlerone" { inherit client; } ''
     mkdir -p $out/static
     ${closurecompiler}/bin/closure-compiler --compilation_level ADVANCED_OPTIMIZATIONS \
       --jscomp_off=checkVars \

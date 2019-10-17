@@ -1,13 +1,13 @@
 cabal-version:       2.4
-name:                tomland-online
+name:                tomlerone
 version:             0.0.0.0
-synopsis:            TOML format online checker based on tomland library
+synopsis:            Tomland online: web app for TOML checker
 description:         TOML format online checker based on tomland library
-homepage:            https://github.com/kowainik/tomland-online
-bug-reports:         https://github.com/kowainik/tomland-online/issues
+homepage:            https://github.com/kowainik/tomlerone
+bug-reports:         https://github.com/kowainik/tomlerone/issues
 license:             MPL-2.0
 license-file:        LICENSE
-author:              Kowainik
+author:              Veronika Romashkina, Dmitrii Kovanikov
 maintainer:          Kowainik<xrom.xkov@gmail.com>
 copyright:           2019 Kowainik
 category:            Web, Application
@@ -18,7 +18,7 @@ tested-with:         GHC == 8.6.5
 
 source-repository head
   type:                git
-  location:            https://github.com/kowainik/tomland-online.git
+  location:            https://github.com/kowainik/tomlerone.git
 
 
 common common-options
@@ -51,8 +51,8 @@ common common-options
 library
   import:              common-options
   hs-source-dirs:      src
-  exposed-modules:     TomlandOnline
-  other-modules:       Paths_tomland_online
+  exposed-modules:     Tomlerone
+  other-modules:       Paths_tomlerone
 
   build-depends:       tomland ^>= 1.2.0.0
                      , jsaddle
@@ -63,5 +63,5 @@ executable client
   import:              common-options
   hs-source-dirs:      app
   main-is:             Main.hs
-  build-depends:       tomland-online
+  build-depends:       tomlerone
   ghc-options:         -threaded -rtsopts -with-rtsopts=-N
