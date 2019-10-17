@@ -1,7 +1,7 @@
 module Main (main) where
 
-import TomlandOnline (runTomland)
+import Tomlerone (runTomlerone)
 
 
 main :: IO ()
-main = runTomland
+main = runTomlerone

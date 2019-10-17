@@ -1,5 +1,5 @@
-module TomlandOnline
-       ( runTomland
+module Tomlerone
+       ( runTomlerone
        ) where
 
 import Control.Monad.IO.Class (liftIO)
@@ -10,8 +10,8 @@ import Miso.String (ms)
 import qualified Language.Javascript.JSaddle.Warp as JSaddle
 
 
-runTomland :: IO ()
-runTomland = do
+runTomlerone :: IO ()
+runTomlerone = do
     putStrLn "Working on http://localhost:8000"
 
     JSaddle.run 8000 $ startApp $ App
